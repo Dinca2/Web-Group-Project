@@ -1,41 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const placesRoutes = require('./routes/places-routes');
-const HttpError = require('./models/http-error');
-
-const app = express();
-
-app.use(bodyParser.json());
-
-app.use('/api/places', placesRoutes); // => /api/places...
-
-app.use((req, res, next) => {
-  const error = new HttpError('Could not find this route.', 404);
-  throw error;
-});
-
-app.use((error, req, res, next) => {
-  if (res.headerSent) {
-    return next(error);
-  }
-  res.status(error.code || 500)
-  res.json({message: error.message || 'An unknown error occurred!'});
-});
-
-app.listen(5000);
-
-
 
 const open_login = document.getElementsByClassName("login-button")[0].addEventListener("click", openLogin);
 const close_login = document.getElementsByClassName("login-cancel")[0].addEventListener("click", closeLogin);
 
-const open_signup = document.getElementsByClassName("sign-up-button")[0].addEventListener("click", openSignUp);
-const close_signup = document.getElementsByClassName("sign-up-cancel")[0].addEventListener("click", closeSignUp);
-
 
 function openLogin() {
-  console.log("hi")
   document.getElementById("myLogin").style.display = "block";
 }
 function closeLogin() {
@@ -43,10 +11,41 @@ function closeLogin() {
 }
 
 
+const open_signup = document.getElementsByClassName("sign-up-button")[0].addEventListener("click", openSignUp);
+const close_signup = document.getElementsByClassName("sign-up-cancel")[0].addEventListener("click", closeSignUp);
+
 function openSignUp() {
   closeLogin();
   document.getElementById("mySignUp").style.display = "block";
 }
 function closeSignUp() {
   document.getElementById("mySignUp").style.display = "none";
+}
+
+
+
+const open_add_pet = document.getElementsByClassName("add-pet-button")[0].addEventListener("click", openAddPet);
+const cancel_add_pet = document.getElementsByClassName("add-pet-cancel")[0].addEventListener("click", closeAddPet);
+
+function openAddPet() {
+  document.getElementById("pet-add").style.display = "block";
+}
+function closeAddPet() {
+  document.getElementById("pet-add").style.display = "none";
+}
+
+
+//temporary code that'll get replaced later
+const add_pet = document.getElementsByClassName("submit-pet")[0].addEventListener("click", addPet);
+const remove_pet = document.getElementsByClassName("remove")[0].addEventListener("click", removePet);
+
+function addPet() {
+  closeAddPet()
+  //temporary code that'll get replaced later
+  React.getElementById("0").style.display = "block";
+}
+
+function removePet() {
+  //temporary code that'll get replaced later
+  document.getElementById("0").style.display = "none";
 }
