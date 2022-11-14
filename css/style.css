@@ -1,1 +1,37 @@
 
+
+
+
+
+.login-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  position:relative;
+}
+
+.login-popup {
+  display: none;
+  position: relative;
+  left: 40%;
+  top: 25%;
+}
+
+.login-container {
+  max-width: 300px;
+  background-color: white;
+}
+
+.sign-up-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  position:relative;
+}
+
+.sign-up-popup {
+  display: none;
+  position: relative;
+  left: 40%;
+  top: 25%;
+}
