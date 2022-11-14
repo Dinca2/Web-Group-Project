@@ -12,7 +12,7 @@
 </head>
   
 <body>
-  
+
 <div class = "top-menu">
   <img src = "images/logo.jpg" alt = "logo" width="150">
   <div class="widget-container">
@@ -25,7 +25,7 @@
           <a href = "#adopt" class ="item_button">ADOPT</a>
         </li>
         <li class = "menu-item">
-          <a href = "#donate" class ="item_button">DONATE</a>
+          <a href = "#register" class ="item_button">ANIMAL REGISTER</a>
         </li>
         <li class = "menu-item-login">
           <a href = "#signup" id ="item_button_signup">Sign Up</a>
@@ -33,15 +33,112 @@
         <li class = "menu-item-login">
           <a href = "#signin" id ="item_button_signin">Sign In</a>
         </li>
+        <li class = "menu-contact">
+          <a href = "#contact" id ="item_contact">CONTACT</a>
+        </li>
       </ul>
     </nav>
   </div>
 </div>
 
+<div id = "about">
+    <img src="images/header-abandon.jpeg" alt = "about-img" width="100%">
+    <div class = "about-text">
+     <h1 class="about-title">CAN WE COME OVER</h1>
+     <h2 class = "about-sectitle">Help Us, Help Them</h2>
+     <p>
+      Please let us know which animal you are protecting or which abandoned animal you found.
+      The Tails has responded to animals in need through the generous support of individuals, businesses, and foundations. We provide shelter, food, medical treatment, love and care to every animal that is brought to our facility. Our mission is to promote the humane treatment of animals through care, education, and advocacy.</p>
+    </div>
+  </div>
 
-  <div id="root">
-  
+  <div id = "adopt-how">
+    <h2 class = "contact-title">How to Adopt?</h2>
+    <p class = "contact-content">
+      Thank you so much for considering an adoption from our shelter! Our goal is to find the pet that is right for YOUR family. The adoption process does require you filling out any paperwork ahead of time.
+      If you have another dog at home, and you would like to have a supervised introduction, we can set that up as well. We recommend visiting an animal first to make sure that it is a good candidate for your home. If you decide you would like to proceed with a meet and greet, our staff can coordinate this at the shelter. We have a secured outside fenced in area next to our adoption building that provides ample space for this introduction.</p>
+  </div>
+
+  <div class = "adopt-container" id = "adopt">
+    <h2 class = "adopt-title">ADOPTION</h2>
+    <p>
+      You can view all of our adoptable animals here.  We update their availability and location in real time. If you see them, they are still available for adoption. There is no appointment needed to visit our pets.
+    </p>
+
+<div class="container">
+  <div class="mySlides">
+    <img src="images/dog1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="images/dog2.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="images/dog3.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <img src="images/cat1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="images/cat2.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <img src="images/cat3.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="images/dog1.jpg" style="width:100%" onclick="currentSlide(1)" alt="BELLA / Male, Young , Mixed Breed ">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/dog2.jpg" style="width:100%" onclick="currentSlide(2)" alt="MAX / Felmale, Large, Mixed Breed">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/dog3.jpg" style="width:100%" onclick="currentSlide(3)" alt="KINGSTON / Felmale, Large, Mixed Breed">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/cat1.jpg" style="width:100%" onclick="currentSlide(4)" alt="GIGI / Female, Mixed, 2 years">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="images/cat2.jpg" style="width:100%" onclick="currentSlide(5)" alt="TOM / Male, Mixed, 3 years">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="images/cat3.jpg" style="width:100%" onclick="currentSlide(6)" alt="SANDY / Female, Mixed, 2 years">
+    </div>
+  </div>
 </div>
+  </div>
+
+  
+  <div id = "register">
+    <div id="root">
+
+    </div>
+  </div>
+
+
+  <div id = "bottom">
+    <h4 class = "bottom-title">Hours of Operation</h6>
+    <p class = "bottom-content">Open by appointment</p>
+    <h4 class = "bottom-title">Address</h6>
+    <p class = "bottom-content">30602 GA Athens</p>
+    <h4 class = "bottom-title">Get In Touch</h6>
+    <p class = "bottom-content">tails@mail.com</p>
+    <hr width="100%"> 
+        <p>©2022 TAILS</p>
+        </body>
+  </div>
 
 <!-- React code -->
 <script type="text/babel">
@@ -94,7 +191,8 @@
   function Addpet() {
     return <div className="add-pet" id="pet-add">
             
-            <h1>Add Pet</h1>
+            <h2>Animal Registeration</h2>
+            <p>If you found an abandoned animal, please register it here. We will upload it as an adoptable animal after proper procedure.</p>
             <form action="/action_page.php" className="pet-adder-form">
               
               <label htmlFor="image"><b>Upload image</b></label>
