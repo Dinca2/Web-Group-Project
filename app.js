@@ -1,27 +1,28 @@
-
-const open_login = document.getElementsByClassName("login-button")[0].addEventListener("click", openLogin);
+const open_login = document.getElementById("item_button_signin").addEventListener("click", openLogin);
 const close_login = document.getElementsByClassName("login-cancel")[0].addEventListener("click", closeLogin);
 
 
 function openLogin() {
-  document.getElementById("myLogin").style.display = "block";
+  closeSignUp();
+  document.getElementById("signin").style.display = "block";
 }
 function closeLogin() {
-  document.getElementById("myLogin").style.display = "none";
+  document.getElementById("signin").style.display = "none";
 }
 
 
 const open_signup = document.getElementsByClassName("sign-up-button")[0].addEventListener("click", openSignUp);
+const open_signup2 = document.getElementById("item_button_signup").addEventListener("click", openSignUp);
+
 const close_signup = document.getElementsByClassName("sign-up-cancel")[0].addEventListener("click", closeSignUp);
 
 function openSignUp() {
   closeLogin();
-  document.getElementById("mySignUp").style.display = "block";
+  document.getElementById("signup").style.display = "block";
 }
 function closeSignUp() {
-  document.getElementById("mySignUp").style.display = "none";
+  document.getElementById("signup").style.display = "none";
 }
-
 
 
 const open_add_pet = document.getElementsByClassName("add-pet-button")[0].addEventListener("click", openAddPet);
@@ -37,18 +38,72 @@ function closeAddPet() {
 
 //temporary code that'll get replaced later
 const add_pet = document.getElementsByClassName("submit-pet")[0].addEventListener("click", addPet);
-const remove_pet = document.getElementsByClassName("remove")[0].addEventListener("click", removePet);
+
+let petCount = 0;
 
 function addPet() {
-  closeAddPet()
-  //temporary code that'll get replaced later
-  React.getElementById("0").style.display = "block";
+  closeAddPet();
+  let petName = document.getElementById("name");
+  let petImg = document.getElementById("image");
+  let petDes = document.getElementById("description");
+  let pets = document.getElementsByClassName("pets")[0];
+  
+  let newPet = document.createElement("div");
+  newPet.setAttribute("id", 0);
+  
+  let newPetName = document.createElement("h1");
+  newPetName.textContent = petName.value;
+  
+  let newPetImg = document.createElement("img");
+  newPetImg.src = "images/Toasty.jpg"
+  newPetImg.setAttribute("width", "10%");
+  newPetImg.setAttribute("height", "10%");
+  
+  let newPetDes = document.createElement("p");
+  newPetDes.textContent = petDes.value;
+  
+  let editBtn = document.createElement("button");
+  editBtn.setAttribute("class", "edit");
+  editBtn.textContent="Edit";
+  
+  let removeBtn = document.createElement("button");
+  removeBtn.setAttribute("class", "remove");
+  removeBtn.textContent="Remove";
+  
+  let uploadBtn = document.createElement("button");
+  uploadBtn.setAttribute("class", "upload");
+  uploadBtn.textContent= "Upload";
+  let br = document.createElement("br");
+  newPet.appendChild(newPetName);
+  newPet.appendChild(newPetImg);
+  newPet.appendChild(newPetDes);
+  newPet.appendChild(editBtn);
+  newPet.appendChild(br);
+  newPet.appendChild(removeBtn);
+  newPet.appendChild(br);
+  newPet.appendChild(uploadBtn);
+  
+  pets.appendChild(newPet);
+  pets.style.display = "block";
+  const remove_pet = document.getElementsByClassName("remove")[0].addEventListener("click", removePet);
+  const edit_pet = document.getElementsByClassName("edit")[0].addEventListener("click", editPet);
+  
+  petCount+=1;
 }
 
 function removePet() {
-  //temporary code that'll get replaced later
-  document.getElementById("0").style.display = "none";
+  
+  document.getElementById("0").remove();
+  petCount = petCount - 1;
+  addPetButton();
 }
+
+function editPet() {
+  removePet();
+  closeAddPetButton();
+  openAddPet();
+}
+
 
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -77,4 +132,17 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+
+
+const submit = document.getElementsByClassName("submit-btn")[0].addEventListener("click", addPetButton);
+const closeAddPetBtn = document.getElementsByClassName("add-pet-button")[0].addEventListener("click", closeAddPetButton);
+function closeAddPetButton() {
+  document.getElementsByClassName("add-pet-button")[0].style.display = "none";
+}
+function addPetButton() {
+  closeLogin();
+  closeSignUp();
+  document.getElementsByClassName("add-pet-button")[0].style.display = "block";
 }
