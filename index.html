@@ -9,6 +9,7 @@
   <script src="React/react.js"></script>
   <script src="React/react-dom.js"></script>
   <script src="React/babel.js"></script>
+
 </head>
   
 <body>
@@ -41,18 +42,22 @@
   </div>
 </div>
 
-<div id = "about">
-    <img src="images/header-abandon.jpeg" alt = "about-img" width="100%">
+<div class = "about">
+     
+  <img src="images/header-abandon.jpeg" class="about-img" alt = "about-img" width="100%">
     <div class = "about-text">
+
      <h1 class="about-title">CAN WE COME OVER</h1>
      <h2 class = "about-sectitle">Help Us, Help Them</h2>
      <p>
       Please let us know which animal you are protecting or which abandoned animal you found.
       The Tails has responded to animals in need through the generous support of individuals, businesses, and foundations. We provide shelter, food, medical treatment, love and care to every animal that is brought to our facility. Our mission is to promote the humane treatment of animals through care, education, and advocacy.</p>
     </div>
-  </div>
+</div>
 
-  <div id = "adopt-how">
+<div class = "adopt">
+
+  <div class = "adopt-how">
     <h2 class = "contact-title">How to Adopt?</h2>
     <p class = "contact-content">
       Thank you so much for considering an adoption from our shelter! Our goal is to find the pet that is right for YOUR family. The adoption process does require you filling out any paperwork ahead of time.
@@ -64,6 +69,10 @@
     <p>
       You can view all of our adoptable animals here.  We update their availability and location in real time. If you see them, they are still available for adoption. There is no appointment needed to visit our pets.
     </p>
+  </div>
+
+</div>
+
 
 <div class="container">
   <div class="mySlides">
@@ -112,13 +121,12 @@
     </div>
     <div class="column">
       <img class="demo cursor" src="images/cat2.jpg" style="width:100%" onclick="currentSlide(5)" alt="TOM / Male, Mixed, 3 years">
-    </div>    
+    </div>
     <div class="column">
       <img class="demo cursor" src="images/cat3.jpg" style="width:100%" onclick="currentSlide(6)" alt="SANDY / Female, Mixed, 2 years">
     </div>
   </div>
 </div>
-  </div>
 
   
   <div id = "register">
@@ -128,86 +136,106 @@
   </div>
 
 
-  <div id = "bottom">
-    <h4 class = "bottom-title">Hours of Operation</h6>
-    <p class = "bottom-content">Open by appointment</p>
-    <h4 class = "bottom-title">Address</h6>
-    <p class = "bottom-content">30602 GA Athens</p>
-    <h4 class = "bottom-title">Get In Touch</h6>
-    <p class = "bottom-content">tails@mail.com</p>
-    <hr width="100%"> 
-        <p>©2022 TAILS</p>
-        </body>
-  </div>
+  <div class = "bottom">
 
-<!-- React code -->
-<script type="text/babel">
-  function Buttons() { //put these in other components, this component is tempory
+    <div class = "bottom-headers">
+      <h4 class = "bottom-title">Hours of Operation</h4>
+      <h4 class = "bottom-title">Address</h4>
+      <h4 class = "bottom-title">Get In Touch</h4>
+    </div>
+
+    <div class = "bottom-para">
+      <p class = "bottom-content">Open by appointment</p>
+      <p class = "bottom-content">30602 GA Athens</p>
+      <p class = "bottom-content">tails@mail.com</p>
+    </div>
+
+    <hr width="100%">
+
+    <p>©2022 TAILS</p>
+
+  </div>
+  <script type="text/babel">
+
+  function Buttons() {
     return <div>
-            <button className="login-button">Login/Sign up</button>
             <button className="add-pet-button">add pet</button>
            </div>
   };
   
   function Login() {
-    return <div className="login-popup" id="myLogin">
+    return <div className="login-popup" id="signin">
             
-            <form action="/action_page.php" className="login">
+            {/*<form action="/action_page.php" className="login">*/}
               <h1>Login</h1>
           
               <label htmlFor="email"><b>Email</b></label>
               <input type="text" placeholder="Enter Email" name="email" required/>
-          
+              <br/>
               <label htmlFor="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" required/>
-          
-              <button type="submit" className="submit-btn">Login</button>
-              <button className="login-cancel">Close</button>
+              <br/>
+              <button type="button" className="submit-btn">Login</button>
+              <button type="button" className="login-cancel">Close</button>
               
-              <button className="sign-up-button">Sign up</button>
-            </form>
+              <button type="button" className="sign-up-button">Sign up</button>
+            {/*</form>*/}
           </div>
   };
   
   function Signup() {
-    return <div className="sign-up-popup" id="mySignUp">
+    return <div className="sign-up-popup" id="signup">
             
-            <form action="/action_page.php" className="sign-up">
+            {/*<form action="/action_page.php" className="sign-up">*/}
               <h1>Sign Up</h1>
           
               <label htmlFor="email"><b>Email</b></label>
               <input type="text" placeholder="Enter Email" name="email" required/>
-          
+              <br/>
               <label htmlFor="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" required/>
-          
-              <button type="submit" className="submit-btn">Sign up</button>
-              <button className="sign-up-cancel">Close</button>
+              <br/>
+              <button type="button" className="submit-btn">Sign up</button>
+              <button type="button" className="sign-up-cancel">Close</button>
               
-            </form>
+            {/*</form>*/}
         </div>
   };
   
   function Addpet() {
     return <div className="add-pet" id="pet-add">
             
-            <h2>Animal Registeration</h2>
-            <p>If you found an abandoned animal, please register it here. We will upload it as an adoptable animal after proper procedure.</p>
-            <form action="/action_page.php" className="pet-adder-form">
+            <h1>Add Pet</h1>
+            {/*<form action="/action_page.php" className="pet-adder-form">*/}
               
               <label htmlFor="image"><b>Upload image</b></label>
-              <input type="file" placeholder="Upload Image" name="image"/>
-              
+              <input type="file" placeholder="Upload Image" name="image" id="image"/>
+              <br/>
               <lable htmlFor="name"><b>Name</b></lable>
-              <input typr="text" placeholder="Add Name" name="name"/>
-              
+              <input typr="text" placeholder="Add Name" name="name" id="name"/>
+              <br/>
               <lable htmlFor="description"><b>Description</b></lable>
-              <input typr="text" placeholder="Add Description" name="descritption"/>
-              
+              <input type="text" placeholder="Add Description" name="descritption" id="description"/>
+              <br/>
               <button type="button" className="submit-pet">Add Pet</button>
               <button type="button" className="add-pet-cancel">Cancel</button>
               
-            </form>
+            {/*</form>*/}
+          </div>
+  };
+  
+  function Pets() {
+    return <div className="pets"></div>
+  };
+  
+  function Register() {
+  return  <div id = "register">
+             <React.Fragment>
+              <Login/>
+              <Signup/>
+              <Addpet/>
+              <Buttons/>
+            </React.Fragment>
           </div>
   };
   
@@ -217,13 +245,11 @@
   
   function App() {
     return <React.Fragment>
-              <Login/>
-              <Signup/>
-              <Addpet/>
-              <Buttons/>
+              <Register/>
+              <Pets/>
               <Javascript/>
            </React.Fragment>
-  }
+  };
   
   ReactDOM.render(
           <App/>,
@@ -231,5 +257,4 @@
         );
 
 </script>
-
-</body
+</body>
