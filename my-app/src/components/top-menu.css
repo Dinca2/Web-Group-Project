@@ -1,0 +1,12 @@
+.top-menu {
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: #DFDCD5;
+  z-index: 1;
+  
+  color: white;
+}
+
