@@ -1,0 +1,29 @@
+.bottom-menu{
+    position:absolute;
+    top:82%;
+    left: 0%;
+    width: 100%;
+    padding: 1%;
+    background-color:#7C736A;
+    text-align: center;
+    color: white;
+    filter:brightness(80%);
+    opacity: 0.9;
+  }
+
+  .bottom-text{
+    display: grid;
+    grid-template-columns: repeat(3, 33% [col-start]);
+
+  }
+  
+  .bottom-headers{
+    display: flex;
+    justify-content: space-around;
+    color: #E9E3CB
+  }
+  
+  .bottom-para{
+    display: flex;
+    justify-content: space-around;
+  }

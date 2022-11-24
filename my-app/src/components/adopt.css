@@ -1,0 +1,63 @@
+.adopt-container{
+    background-color: #DFDCD5;
+    filter:brightness(90%);
+    opacity: 0.9;
+    /* position:absolute;
+    top: 30%;
+    left: 37.5%; */
+    width: 300px;
+    overflow: hidden;
+    box-shadow:0px 0px 15px -5px;
+    transition: 0.3s;
+    animation: ease-in;
+}
+
+.adopt-content{
+    margin: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+h3,p{
+    margin: 0;
+    padding: 0;
+}
+
+.adopt-title{
+    margin-bottom: 0.5rem;
+}
+
+.adopt-container:hover {
+    transform: scale(1.1);
+    box-shadow:0px 0px 15px 0px;
+}
+
+.adopt-image img{
+    overflow: hidden;
+    height: 200px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+
+.btn button{
+    padding: 0.5rem;
+    background-color: white;
+    border: none;
+    transition: 0.2s;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+}
+
+.btn button:hover{
+    background: wheat;
+}
+
+.a{
+    text-transform: uppercase;
+    color: wheat;
+    text-decoration: none;
+    font-weight: bold;
+}

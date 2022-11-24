@@ -1,0 +1,39 @@
+.aboutViewContent{
+    position: absolute;
+    top: 11%;
+    left: 0%;
+    width: 100%;
+    Color:white;
+  }
+  
+  .BackImages{
+    filter:brightness(60%);
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .canWeComeOver{
+    position:absolute;
+    top: 5%;
+    left: 5%;
+    right: 45%;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    filter:brightness(95%);
+    text-shadow: black 1px 0 10px;;
+    
+  }
+  
+  .howToAdopt{
+    position:absolute;
+    top: 53%;
+    left: 5%;
+    right: 50%;
+    text-align: justify;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+    filter:brightness(95%);
+    text-shadow: black 1px 0 10px;;
+  }
