@@ -67,11 +67,11 @@ app.post('/signup', async (req, res) => {
   }
   
 });
-router.get("/login", (res, req) => {
+app.get("/login", (res, req) => {
   res.sendFile("index.html");
 });
 
-router.post("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
   const userLoggingIn = req.body;
   console.log('login');
   User.findOne({username: userLoggingIn.username}).then(dbUser => {
