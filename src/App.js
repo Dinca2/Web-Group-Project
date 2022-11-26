@@ -78,6 +78,9 @@ function App() {
         <Route path="/signup" exact element={
           <Signup/> }>
         </Route>
+        <Route path="/animalregister" exact element={
+          <AnimalReg/>}>
+        </Route>
       </Routes>
       );
     }
