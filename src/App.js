@@ -6,7 +6,6 @@ import {
   Navigate,
   Routes
 } from 'react-router-dom';
-
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Slides from './components/Slides';
@@ -15,15 +14,10 @@ import Bottom from './components/Bottom';
 import AnimalReg from './components/AnimalReg';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { createContext } from 'react';
+import {AuthContext} from './auth/authContext.js';
+import {myPetsContext} from './components/myPetsContext.js';
 
-const AuthContext = createContext({
-  isLoggedIn: false,
-  login: () => {},
-  logout: () => {}
-});
-
-function Adoptpage () {
+function Adoptcomp () {
   return (<div>
             <Adopt/>
             <Slides/>
@@ -32,7 +26,8 @@ function Adoptpage () {
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [list, setList] = useState([]);
+  
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
@@ -53,24 +48,26 @@ function App() {
           <About/> }>
         </Route>
         <Route path="/adopt" exact element={
-          <Adoptpage/>}>
+          <Adoptcomp/>}>
         </Route>
         <Route path="/animalregister" exact element={
-          <AnimalReg/>}>
+          <myPetsContext.Provider value={{list:list}}>
+            <AnimalReg/>
+          </myPetsContext.Provider>}>
         </Route>
       </Routes>
       );
     } else {
       routes = (
       <Routes>
-      <Route path="/about" exact element={
+        <Route path="/about" exact element={
           <About/> }>
         </Route>
           <Route path="/" exact element={
           <About/> }>
         </Route>
         <Route path="/adopt" exact element={
-          <Adoptpage/> }>
+          <Adoptcomp/> }>
         </Route>
         <Route path="/login" exact element={
           <Login/> }>
@@ -78,16 +75,12 @@ function App() {
         <Route path="/signup" exact element={
           <Signup/> }>
         </Route>
-        <Route path="/animalregister" exact element={
-          <AnimalReg/>}>
-        </Route>
       </Routes>
       );
     }
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
-    >
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout}}>
       <Router>
         <Navbar/>
         <main> {routes} </main>
