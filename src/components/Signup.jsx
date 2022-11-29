@@ -1,15 +1,15 @@
 import './Signup.css';
-import {useEffect} from 'react';
 import {useNavigate} from 'react-router';
-export default function Signup() {
-  const history = useNavigate();
-  
-  async function handleSignup(e) {
-    e.preventDefualt();
+
+function Signup() {
+  const navigate = useNavigate();
+  function handleSignup(e) {
+    e.preventDefault();
     const form = e.target;
     const user = {
-      email: form[0].value,
-      password: form[1].value,
+      username: form[0].value,
+      email: form[1].value,
+      password: form[2].value,
     }
     
     fetch("/signup", {
@@ -17,35 +17,34 @@ export default function Signup() {
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringfy(user)
+      body: JSON.stringify(user)
     });
-  }
-  
-  useEffect(() => {
     fetch("/isUserAuth", {
+      method: "POST",
       headers: {
         "x-access-token": localStorage.getItem("token")
       }
-    });
-  }, []);
-  
-  return (
+    })
+    .then(res =>res.json())
+    .then(data => data.isLoggedIn ? navigate("/login"):null);
     
-      <div className="popup" id="signup">
+    }
+  
+
+  return (
+      
+      <div className="login-signup" id="signup">
         <h1>Sign Up</h1>
         <form onSubmit={event => handleSignup(event)}>
             
+          <label htmlFor="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter username" name="username" required/>
+          <br/>
           <label htmlFor="email"><b>Email</b></label>
           <input type="email" placeholder="Enter Email" name="email" required/>
           <br/>
           <label htmlFor="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required/>
-          <br/>
-          <label htmlFor="Name"><b>Name</b></label>
-          <input type="text" placeholder="Enter Your Name" name="name" required/>
-          <br/>
-          <label htmlFor="contact"><b>Contact</b></label>
-          <input type="tel" placeholder="Enter Your phone number" name="tel"/>
           <br/>
           <input type="submit" value="Submit" className="submit-btn"/>
               
@@ -53,3 +52,5 @@ export default function Signup() {
     </div>
   );
 }
+
+export default Signup;
